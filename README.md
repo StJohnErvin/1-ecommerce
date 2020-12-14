@@ -1,5 +1,8 @@
-# ecommerce
-Sample working project of an ecommerce site.
+# e-commerce
+
+Ultimate E-commerce app with React Redux Ant 
+
+Design Firebase NodeJs and MongoDB.
 
 MERN Stack Web Development
 
