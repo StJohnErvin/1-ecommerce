@@ -1,8 +1,6 @@
 # e-commerce
 
-Ultimate E-commerce app with React Redux Ant 
-
-Design Firebase NodeJs and MongoDB.
+E-commerce app 
 
 MERN Stack Web Development
 
