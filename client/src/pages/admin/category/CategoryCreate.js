@@ -8,7 +8,17 @@ import {
   removeCategory,
 } from "../../../functions/category";
 import {Link} from"react-router-dom";
+
+
 import {EditOutlined, DeleteOutlined} from '@ant-design/icons';
+
+
+
+import CategoryForm from "../../../components/forms/CategoryForm";
+import LocalSearch from "../../../components/forms/LocalSearch";
+
+
+
 
 const CategoryCreate = () => {
   const { user } = useSelector((state) => ({ ...state }));
@@ -18,6 +28,14 @@ const CategoryCreate = () => {
   const [loading, setLoading] = useState(false);
 
   const [categories, setCategories] = useState([]);
+
+//filtering/search
+
+const [keyword, setKeyword] = useState("");
+
+
+
+
 
   useEffect(() => {  loadCategories(); }, []);
 
@@ -39,6 +57,7 @@ const CategoryCreate = () => {
 
         setName("");
         toast.success(`"${res.data.name}" is created`);
+        loadCategories();
 
       })
       .catch((err) => {
@@ -52,28 +71,53 @@ const CategoryCreate = () => {
       });
   };
 
-  const categoryForm = () => (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label>Name</label>
-        <input
-          type="text"
-          className="form-control"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          autoFocus
-          required
 
-        />
 
-        <br />
+const handleRemove = async (slug) =>{
 
-        <button className="btn btn-outline-primary">Save</button>
-      </div>
 
-    </form>
 
-  );
+if(window.confirm(`Delete Category  ${slug} `))
+{
+setLoading(true);
+removeCategory(slug, user.token)
+.then(res=> {
+
+setLoading(false);
+toast.error(`${res.data.name} deleted!`);
+loadCategories();
+
+
+})
+.catch(err =>{
+
+    if (err.response.status === 400){
+
+
+        setLoading(false);
+     toast.error(err.response.data);
+   
+    }
+
+
+
+});
+
+
+}
+
+};
+
+
+
+
+
+
+const searched = (keyword) => (c) => c.name.toLowerCase().includes(keyword);
+
+
+
+
 
   return (
     <div className="container-fluid">
@@ -87,15 +131,32 @@ const CategoryCreate = () => {
           ) : (
             <h4>Create category</h4>
           )}
-          {categoryForm()}
-          <hr />
-          {categories.map((c)=> (
+
+
+
+<CategoryForm handleSubmit={handleSubmit} name={name} setName={setName} />     
+   
+   <LocalSearch keyword={keyword} setKeyword={setKeyword} />
+   
+
+
+
+
+
+
+          {categories.filter(searched(keyword)).map((c)=> (
           
           
           <div className="alert alert-secondary" key={c._id}>
 
-              {c.name}{""}<span className="btn btn-sm float-right">
+              {c.name}{""}<span onClick={() => handleRemove(c.slug)} className="btn btn-sm float-right">
                   <DeleteOutlined className="text-danger"/></span>
+
+
+
+
+
+
 
               <Link to={`/admin/category/${c.slug}`}>
                   <span className="btn btn-sm float-right">

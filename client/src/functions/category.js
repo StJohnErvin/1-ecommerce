@@ -35,7 +35,7 @@ export const getCategories = async () => {
   export const updateCategory = async (slug,category, authtoken) => {
     return await axios.put
     (
-      `${process.env.REACT_APP_API}/category/${slug}`,
+      `${process.env.REACT_APP_API}/category/${slug}`, category,
    {  headers:{
         authtoken
    }
