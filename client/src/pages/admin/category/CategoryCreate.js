@@ -7,6 +7,8 @@ import {
   getCategories,
   removeCategory,
 } from "../../../functions/category";
+import {Link} from"react-router-dom";
+import {EditOutlined, DeleteOutlined} from '@ant-design/icons';
 
 const CategoryCreate = () => {
   const { user } = useSelector((state) => ({ ...state }));
@@ -70,7 +72,7 @@ const CategoryCreate = () => {
       </div>
 
     </form>
-    
+
   );
 
   return (
@@ -87,7 +89,23 @@ const CategoryCreate = () => {
           )}
           {categoryForm()}
           <hr />
-          {JSON.stringify(categories)}
+          {categories.map((c)=> (
+          
+          
+          <div className="alert alert-secondary" key={c._id}>
+
+              {c.name}{""}<span className="btn btn-sm float-right">
+                  <DeleteOutlined/></span>
+
+              <Link to={`/admin/category/${c.slug}`}>
+                  <span className="btn btn-sm float-right">
+                      <EditOutlined/></span></Link>
+
+
+        </div>
+              
+              
+              ))}
         </div>
       </div>
     </div>
