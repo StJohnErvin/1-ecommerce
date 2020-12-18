@@ -20,10 +20,12 @@ import { createOrUpdateUser } from "../../functions/auth";
 
 
 
+
+
 const Login = ({history}) => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("johnervin.ceriola@outlook.com");
+    const [password, setPassword] = useState("123456");
     const [loading, setLoading] = useState(false);
 
     const {user} = useSelector((state) =>({...state}));
@@ -35,11 +37,29 @@ const Login = ({history}) => {
 
         if(user && user.token) history.push("/");
     
-    },[user]);
+    },[user, history]);
+    
       
 
 
     let dispatch = useDispatch();
+    const roleBasedRedirect = (res) => {
+
+      if(res.data.role === "admin" ) 
+      {
+      
+      
+      history.push("/admin/dashboard");
+      
+      }
+      
+      else {
+      
+      history.push("/user/history");
+      
+      
+      }
+      };
 
 const handleSubmit = async (e) =>{
 
@@ -72,14 +92,20 @@ const result =await auth.signInWithEmailAndPassword(email, password);
         _id: res.data._id,
       },
     });
-  })
-  .catch(err => console.log(err));
+    roleBasedRedirect(res);
 
-history.push("/");
-} catch (error) {
+  })
+  .catch((err) => console.log(err));
+
+//history.push("/");
+
+
+} 
+catch (error)  {
 console.log(error);
 toast.error(error.message);
 setLoading(false);
+
 }
 };
 
@@ -122,7 +148,7 @@ block
 shape="round"
 icon ={<MailOutlined/>}
 size="large"
-disabled={!email || password.length <6}
+disabled={!email || password.length  < 6 }
 >Login with Email/Password
 
 </Button>
