@@ -95,11 +95,11 @@ const CategoryCreate = () => {
           <div className="alert alert-secondary" key={c._id}>
 
               {c.name}{""}<span className="btn btn-sm float-right">
-                  <DeleteOutlined/></span>
+                  <DeleteOutlined className="text-danger"/></span>
 
               <Link to={`/admin/category/${c.slug}`}>
                   <span className="btn btn-sm float-right">
-                      <EditOutlined/></span></Link>
+                      <EditOutlined className="text-primary"/></span></Link>
 
 
         </div>
