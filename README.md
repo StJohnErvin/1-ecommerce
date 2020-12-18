@@ -1,8 +1,8 @@
-# e-commerce
+# e-commerce :pouch:
 
-E-commerce app 
+E-commerce app :iphone:
 
-MERN Stack Web Development 
+MERN Stack Web Development :computer:
 
 React Client (Frontend) :heavy_check_mark:
 
