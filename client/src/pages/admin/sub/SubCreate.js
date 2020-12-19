@@ -88,8 +88,7 @@ const SubCreate = () => {
             >
               <option>Please select</option>
               {categories.length > 0 &&
-                categories.map((c) => (
-                  <option key={c._id} value={c._id}>
+                categories.map((c) => ( <option key={c._id} value={c._id}>
                     {c.name}
                   </option>
                 ))}

@@ -18,11 +18,11 @@ Categories CRUD :heavy_check_mark:
 
 Sub Categories CRUD :heavy_check_mark:
 
-Creating Products with Categories and Sub Categories (Advance)
+Creating Products with Categories and Sub Categories  :heavy_check_mark:
 
 Multiple Image Uploads with Client Side Resize
 
-Update and Delete Products (Advance)
+Update and Delete Products 
 
 Displaying Products Pagination and Carousel
 
@@ -30,7 +30,7 @@ Star Rating System
 
 Products based on Categories and Sub Categories
 
-Advance Searching and Filtering (9 Different Ways)
+Advance Searching and Filtering 
 
 Add to Cart
 
