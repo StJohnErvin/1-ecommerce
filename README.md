@@ -1,20 +1,20 @@
-# e-commerce
+# e-commerce :pouch:
 
-E-commerce app 
+E-commerce app :iphone:
 
-MERN Stack Web Development
+MERN Stack Web Development :computer:
 
-React Client (Frontend)
+React Client (Frontend) :heavy_check_mark:
 
-Firebase Authentication and Redux
+Firebase Authentication and Redux :heavy_check_mark:
 
-Node MongoDB API (Backend)
+Node MongoDB API (Backend) :heavy_check_mark:
 
-Firebase Auth Check (Server side)
+Firebase Auth Check (Server side) :heavy_check_mark:
 
-User Admin and Protected Routes
+User Admin and Protected Routes :heavy_check_mark:
 
-Categories CRUD
+Categories CRUD :heavy_check_mark:
 
 Sub Categories CRUD
 
