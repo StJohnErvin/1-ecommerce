@@ -16,7 +16,7 @@ User Admin and Protected Routes :heavy_check_mark:
 
 Categories CRUD :heavy_check_mark:
 
-Sub Categories CRUD
+Sub Categories CRUD :heavy_check_mark:
 
 Creating Products with Categories and Sub Categories (Advance)
 
