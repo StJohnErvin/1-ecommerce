@@ -20,7 +20,7 @@ Sub Categories CRUD :heavy_check_mark:
 
 Creating Products with Categories and Sub Categories  :heavy_check_mark:
 
-Multiple Image Uploads with Client Side Resize
+Multiple Image Uploads with Client Side Resize :heavy_check_mark:
 
 Update and Delete Products 
 
