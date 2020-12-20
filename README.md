@@ -22,7 +22,7 @@ Creating Products with Categories and Sub Categories  :heavy_check_mark:
 
 Multiple Image Uploads with Client Side Resize :heavy_check_mark:
 
-Update and Delete Products 
+Update and Delete Products :heavy_check_mark:
 
 Displaying Products Pagination and Carousel
 

@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+
   const { user } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const AllProducts = () => {
   };
 
   const handleRemove = (slug) => {
-    if (window.confirm("Delete?")) {
+    if (window.confirm("Delete this item?")) {
       removeProduct(slug, user.token)
         .then((res) => {
           loadAllProducts();
