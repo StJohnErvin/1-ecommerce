@@ -53,46 +53,6 @@ const CategoryUpdate = ({history, match}) => {
       });
   };
 
-
-
-// const handleRemove = async (slug) =>{
-
-
-
-// if(window.confirm(`Delete Category  ${slug} `))
-// {
-// setLoading(true);
-// removeCategory(slug, user.token)
-// .then(res=> {
-
-// setLoading(false);
-// toast.error(`${res.data.name} deleted!`);
-// loadCategories();
-
-
-// })
-// .catch(err =>{
-
-//     if (err.response.status === 400){
-
-
-//         setLoading(false);
-//      toast.error(err.response.data);
-   
-//     }
-
-
-
-// });
-
-
-// }
-
-// };
-
-
-
-
  
   return (
     <div className="container-fluid">
