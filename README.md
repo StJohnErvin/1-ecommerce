@@ -24,8 +24,8 @@ Multiple Image Uploads with Client Side Resize :heavy_check_mark:
 
 Update and Delete Products :heavy_check_mark:
 
-Displaying Products Pagination and Carousel
-
+Displaying Products Pagination and Carousel :heavy_check_mark:
+ 
 Star Rating System
 
 Products based on Categories and Sub Categories

@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
 import {Menu} from 'antd';
 import {
-    HomeOutlined, 
-      
+    ShopOutlined , 
      UserOutlined,
      UserAddOutlined,
-     SettingOutlined, 
+     SettingOutlined,
+     SafetyCertificateOutlined, 
      LogoutOutlined} 
      from '@ant-design/icons';
 import {Link} from 'react-router-dom';
 import firebase from 'firebase';
 import {useDispatch, useSelector} from 'react-redux';
 import{useHistory} from'react-router-dom';
+
+
 
 
 
@@ -59,12 +61,11 @@ history.push("/login");
 return(
     
 
-    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+    <Menu theme="dark" onClick={handleClick} selectedKeys={[current]} mode="horizontal">
      
-    <Item key="home" icon={<HomeOutlined />}>
-        <Link to="/">Home</Link>
+    <Item key="home" icon={<ShopOutlined />}>
+        <Link to="/">CerJam's</Link>
     </Item>
-
 
 
    {!user &&    ( <Item key="register" icon={<UserAddOutlined />} className="float-right">
@@ -81,16 +82,16 @@ return(
  
  
  {user && (
-    <SubMenu key="SubMenu" icon={<SettingOutlined />} title={user.email && user.email.split('@')[0]} className="float-right">
+    <SubMenu key="SubMenu" icon={<SafetyCertificateOutlined  />} title={user.email && user.email.split('@')[0]} className="float-right">
     
 {user && user.role === "subscriber"
        && 
-        <Item><Link to="user/history">Dashboard</Link></Item>
+        <Item  icon ={<SettingOutlined/>}><Link to="user/history">Dashboard</Link></Item>
 }
 
 {user && user.role === "admin"
        && 
-        <Item><Link to="admin/dashboard">Dashboard</Link></Item>
+        <Item icon ={<SettingOutlined/>}><Link to="admin/dashboard">Dashboard</Link></Item>
 }
 
 

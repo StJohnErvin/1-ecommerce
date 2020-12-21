@@ -1,15 +1,14 @@
 import React from "react";
 import { Card } from "antd";
+import { EyeOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import laptop from "../../images/laptop.png";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 const { Meta } = Card;
 
-const AdminProductCard = ({ product, handleRemove }) => {
+const ProductCard = ({ product }) => {
   // destructure
-  const { title, description, images, slug } = product;
-
+  const { images, title, description, slug } = product;
   return (
     <Card
       cover={
@@ -20,13 +19,12 @@ const AdminProductCard = ({ product, handleRemove }) => {
         />
       }
       actions={[
-        <Link to={`/admin/product/${slug}`}>
-          <EditOutlined className="text-primary" />
+        <Link to={`/product/${slug}`}>
+          <EyeOutlined className="text-primary" /> <br /> View Product
         </Link>,
-        <DeleteOutlined
-          onClick={() => handleRemove(slug)}
-          className="text-danger"
-        />,
+        <>
+          <ShoppingCartOutlined className="text-success" /> <br /> Add to Cart
+        </>,
       ]}
     >
       <Meta
@@ -37,4 +35,4 @@ const AdminProductCard = ({ product, handleRemove }) => {
   );
 };
 
-export default AdminProductCard;
+export default ProductCard;

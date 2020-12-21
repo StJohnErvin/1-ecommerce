@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/dark-theme": "^2.0.2",
     "@ant-design/icons": "^4.3.0",
     "@react-firebase/auth": "^0.2.10",
     "@testing-library/jest-dom": "^5.11.6",
