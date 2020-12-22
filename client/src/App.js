@@ -34,14 +34,17 @@ import ProductCreate from "./pages/admin/product/ProductCreate";
 import AllProducts from "./pages/admin/product/AllProducts";
 import ProductUpdate from "./pages/admin/product/ProductUpdate";
 
+
 import Product from "./pages/Product";
+import CategoryHome from "./pages/category/CategoryHome";
+import SubHome from "./pages/sub/SubHome";
+
 
 
 
 const App = () => {
   const dispatch = useDispatch();
 
-  // to check firebase auth state
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
@@ -64,7 +67,6 @@ const App = () => {
           .catch((err) => console.log(err));
       }
     });
-    // cleanup
     return () => unsubscribe();
   }, [dispatch]);
 
@@ -98,8 +100,13 @@ const App = () => {
         <AdminRoute exact path="/admin/product/:slug" component={ProductUpdate}/>
      
         <Route exact path="/product/:slug" component={Product} />
+
+        <Route exact path="/category/:slug" component={CategoryHome} />
+        <Route exact path="/sub/:slug" component={SubHome} />
+
      
       </Switch>
+      
     </>
   );
 };

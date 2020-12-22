@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {Menu} from 'antd';
 import {
-    ShopOutlined , 
+    CrownTwoTone , 
      UserOutlined,
      UserAddOutlined,
-     SettingOutlined,
-     SafetyCertificateOutlined, 
+     SettingTwoTone,
+     ShopTwoTone,
+     SafetyCertificateTwoTone, 
      LogoutOutlined} 
      from '@ant-design/icons';
 import {Link} from 'react-router-dom';
@@ -63,12 +64,17 @@ return(
 
     <Menu theme="dark" onClick={handleClick} selectedKeys={[current]} mode="horizontal">
      
-    <Item key="home" icon={<ShopOutlined />}>
-        <Link to="/">CerJam's</Link>
+    <Item key="home" icon={<CrownTwoTone />}>
+        <Link to="/">CerJam</Link>
     </Item>
 
+    <Item key="" icon={<ShopTwoTone />}>
+        <Link to="">Shop</Link>
+    </Item>
+    
 
-   {!user &&    ( <Item key="register" icon={<UserAddOutlined />} className="float-right">
+
+   {!user &&    ( <Item key="register" icon={<UserAddOutlined />} >
        <Link to="/register">Register</Link>
     </Item>)}
 
@@ -82,16 +88,16 @@ return(
  
  
  {user && (
-    <SubMenu key="SubMenu" icon={<SafetyCertificateOutlined  />} title={user.email && user.email.split('@')[0]} className="float-right">
+    <SubMenu key="SubMenu" icon={<SafetyCertificateTwoTone />} title={user.email && user.email.split('@')[0]} className="float-right">
     
 {user && user.role === "subscriber"
        && 
-        <Item  icon ={<SettingOutlined/>}><Link to="user/history">Dashboard</Link></Item>
+        <Item  icon ={<SettingTwoTone/>}><Link to="user/history">Dashboard</Link></Item>
 }
 
 {user && user.role === "admin"
        && 
-        <Item icon ={<SettingOutlined/>}><Link to="admin/dashboard">Dashboard</Link></Item>
+        <Item icon ={<SettingTwoTone />}><Link to="admin/dashboard">Dashboard</Link></Item>
 }
 
 

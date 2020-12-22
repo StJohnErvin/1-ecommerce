@@ -10,7 +10,6 @@ exports.create = async (req, res) => {
     res.json(newProduct);
   } catch (err) {
     console.log(err);
-    // res.status(400).send("Create product failed");
     res.status(400).json({
       err: err.message,
     });
@@ -60,39 +59,17 @@ exports.update = async (req, res) => {
     res.json(updated);
   } catch (err) {
     console.log("PRODUCT UPDATE ERROR ----> ", err);
-    // return res.status(400).send("Product update failed");
     res.status(400).json({
       err: err.message,
     });
   }
 };
 
-// WITHOUT PAGINATION
-// exports.list = async (req, res) => {
-//   try {
-//     // createdAt/updatedAt, desc/asc, 3
-//     const { sort, order, limit } = req.body;
-//     const products = await Product.find({})
-//       .populate("category")
-//       .populate("subs")
-//       .sort([[sort, order]])
-//       .limit(limit)
-//       .exec();
-
-//     res.json(products);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
-// WITH PAGINATION
 exports.list = async (req, res) => {
-  // console.table(req.body);
   try {
-    // createdAt/updatedAt, desc/asc, 3
     const { sort, order, page } = req.body;
     const currentPage = page || 1;
-    const perPage = 3; // 3
+    const perPage = 3; 
 
     const products = await Product.find({})
       .skip((currentPage - 1) * perPage)
@@ -144,3 +121,21 @@ exports.productStar = async (req, res) => {
     res.json(ratingUpdated);
   }
 };
+
+
+exports.listRelated = async (req, res) => {
+  const product = await Product.findById(req.params.productId).exec();
+
+  const related = await Product.find({
+    _id: { $ne: product._id },
+    category: product.category,
+  })
+    .limit(3)
+    .populate("category")
+    .populate("subs")
+    .populate("postedBy")
+    .exec();
+
+  res.json(related);
+};
+

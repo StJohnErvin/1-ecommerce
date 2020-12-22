@@ -28,7 +28,7 @@ Displaying Products Pagination and Carousel :heavy_check_mark:
  
 Star Rating System :heavy_check_mark:
 
-Products based on Categories and Sub Categories
+Products based on Categories and Sub Categories :heavy_check_mark:
 
 Advance Searching and Filtering 
 
