@@ -26,7 +26,7 @@ Update and Delete Products :heavy_check_mark:
 
 Displaying Products Pagination and Carousel :heavy_check_mark:
  
-Star Rating System
+Star Rating System :heavy_check_mark:
 
 Products based on Categories and Sub Categories
 

@@ -20,6 +20,7 @@ const BestSellers = () => {
 
   const loadAllProducts = () => {
     setLoading(true);
+    // sort, order, limit
     getProducts("sold", "desc", page).then((res) => {
       setProducts(res.data);
       setLoading(false);
