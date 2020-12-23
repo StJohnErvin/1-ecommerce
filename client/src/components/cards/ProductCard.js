@@ -28,10 +28,10 @@ const ProductCard = ({ product }) => {
       }
       actions={[
         <Link to={`/product/${slug}`}>
-          <EyeOutlined className="text-primary" /> <br /> View Product
+          <EyeOutlined className="text-info" /> <br /> View Product
         </Link>,
         <>
-          <ShoppingCartOutlined className="text-danger" /> <br /> Add to Cart
+          <ShoppingCartOutlined className="text-success" /> <br /> Add to Cart
         </>,
       ]}
     >

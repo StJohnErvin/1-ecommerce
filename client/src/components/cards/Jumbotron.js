@@ -9,6 +9,8 @@ const Jumbotron = ({ text }) => (
       loop: true,
     }}
   />
+
+
 );
 
 export default Jumbotron;

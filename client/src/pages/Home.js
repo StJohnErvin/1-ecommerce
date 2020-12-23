@@ -14,29 +14,37 @@ const IconFont = createFromIconfontCN({
 const Home = () => {
   return (
     <>
-      <div className="jumbotron text-danger h1 font-weight-bold text-center">
+      <div className=" text-danger h1 p-5 mt-5 mb-5  font-weight-bold text-center"
+
+      
+      
+      >
         <Jumbotron text={["SALE SALE SALE"]} />
       </div>
 
-      <h4 className="text-center h2 font-weight-bold p-3 mt-5 mb-5 display-4 jumbotron">
+      <h4 className="text-center  font-weight-bold p-3 mt-4  mb-5 display-4 bg-info text-white "
+      
+      
+      
+      >
         New Arrivals
       </h4>
       <NewArrivals />
 
-      <h4 className=" text-center  h2 font-weight-bold p-3 mt-5 mb-5 display-4 jumbotron ">
-        Best Sellers
+      <h4 className=" text-center  font-weight-bold p-3 mt-4  mb-5 display-4 bg-info text-white">
+       Best Sellers
       </h4>
       <BestSellers />
 
       <br />
       <br />
 
-      <h4 className="text-center h2 font-weight-bold p-3 mt-5 mb-5 display-4 jumbotron">
+      <h4 className="text-center  font-weight-bold p-3 mt-4  mb-5 display-4 bg-info text-white">
         Categories
       </h4>
       <CategoryList />
 
-      <h4 className="text-center h2 font-weight-bold p-3 mt-5 mb-5 display-4 jumbotron">
+      <h4 className="text-center  font-weight-bold p-3 mt-4  mb-5 display-4 bg-info text-white">
         Sub Categories
       </h4>
       <SubList />
@@ -49,9 +57,7 @@ const Home = () => {
             2020-2021, Cerjam.com, Inc. or its affiliates{" "}
             <IconFont
               type="icon-facebook"
-              className="float-right h2 p-2
-      "
-            />{" "}
+              className="float-right h2 p-2 "/>{" "}
             <IconFont type="icon-twitter" className="float-right h2 p-2" />
           </p>
         </div>

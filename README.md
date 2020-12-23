@@ -30,7 +30,7 @@ Star Rating System :heavy_check_mark:
 
 Products based on Categories and Sub Categories :heavy_check_mark:
 
-Advance Searching and Filtering 
+Advance Searching and Filtering :heavy_check_mark: 
 
 Add to Cart
 

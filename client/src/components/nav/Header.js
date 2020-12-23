@@ -1,116 +1,106 @@
-import React, {useState} from 'react';
-import {Menu} from 'antd';
+import React, { useState } from "react";
+import { Menu } from "antd";
 import {
-    CrownTwoTone , 
-     UserOutlined,
-     UserAddOutlined,
-     SettingTwoTone,
-     ShopTwoTone,
-     SafetyCertificateTwoTone, 
-     LogoutOutlined} 
-     from '@ant-design/icons';
-import {Link} from 'react-router-dom';
-import firebase from 'firebase';
-import {useDispatch, useSelector} from 'react-redux';
-import{useHistory} from'react-router-dom';
-
-
-
-
-
-
-
+  CrownTwoTone,
+  UserOutlined,
+  UserAddOutlined,
+  SettingTwoTone,
+  ShoppingCartOutlined,
+  ShopTwoTone,
+  SafetyCertificateTwoTone,
+  LogoutOutlined,
+} from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import firebase from "firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import Search from "../forms/Search";
 
 const { SubMenu, Item } = Menu;
 
+const Header = () => {
+  const [current, setCurrent] = useState("home");
 
-const Header = () =>{
+  let dispatch = useDispatch();
 
+  let { user } = useSelector((state) => ({ ...state }));
 
-const [current, setCurrent] = useState("home")
+  let history = useHistory();
 
+  const handleClick = (e) => {
+    setCurrent(e.key);
+  };
 
-let dispatch = useDispatch();
+  const logout = () => {
+    firebase.auth().signOut();
+    dispatch({
+      type: "LOGOUT",
+      payload: null,
+    });
 
-let {user} = useSelector ((state)=>({...state}));
+    history.push("/login");
+  };
 
-let history = useHistory();
-
-
-const handleClick = (e) =>{
-//console.log(e.key);
-setCurrent(e.key);
-
-};
-
-const logout=()=>{
-
-firebase.auth().signOut()
-dispatch({
-
-
-    type:"LOGOUT",
-    payload:null,
-});
-
-history.push("/login");
-
-
-};
-
-
-return(
-    
-
-    <Menu theme="dark" onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-     
-    <Item key="home" icon={<CrownTwoTone />}>
+  return (
+    <Menu
+      theme="dark"
+      onClick={handleClick}
+      selectedKeys={[current]}
+      mode="horizontal"
+    >
+      <Item key="home" icon={<CrownTwoTone />} className=" font-weight-bold" >
         <Link to="/">CerJam</Link>
-    </Item>
+      </Item>
 
-    <Item key="" icon={<ShopTwoTone />}>
-        <Link to="">Shop</Link>
-    </Item>
-    
+      <Item key="shop" icon={<ShopTwoTone />}className="font-weight-bold">
+        <Link to="/shop">Shop</Link>
+      </Item>
+      <Item key="" icon={<ShoppingCartOutlined />} className="text-success font-weight-bold">
+        <Link to="">Cart</Link>
+      </Item>
 
+      {!user && (
+        <Item key="register" icon={<UserAddOutlined /> }className="font-weight-bold">
+          <Link to="/register">Register</Link>
+        </Item>
+      )}
 
-   {!user &&    ( <Item key="register" icon={<UserAddOutlined />} >
-       <Link to="/register">Register</Link>
-    </Item>)}
+      {!user && (
+        <Item key="login" icon={<UserOutlined />} className="float-right font-weight-bold">
+          <Link to="/login">Login</Link>
+        </Item>
+      )}
 
+      {user && (
+        <SubMenu
+          key="SubMenu"
+          icon={<SafetyCertificateTwoTone />}
+          title={user.email && user.email.split("@")[0]}
+          className="float-right font-weight-bold"
+        >
+          {user && user.role === "subscriber" && (
+            <Item icon={<SettingTwoTone />}className="font-weight-bold">
+              <Link to="user/history">Dashboard</Link>
+            </Item>
+          )}
 
+          {user && user.role === "admin" && (
+            <Item icon={<SettingTwoTone />}className="font-weight-bold">
+              <Link to="admin/dashboard">Dashboard</Link>
+            </Item>
+          )}
 
-    {!user &&    ( <Item key="login" icon={<UserOutlined />} className="float-right">
-        <Link to="/login">Login</Link>
-    </Item>)}
- 
- 
- 
- 
- {user && (
-    <SubMenu key="SubMenu" icon={<SafetyCertificateTwoTone />} title={user.email && user.email.split('@')[0]} className="float-right">
-    
-{user && user.role === "subscriber"
-       && 
-        <Item  icon ={<SettingTwoTone/>}><Link to="user/history">Dashboard</Link></Item>
-}
+          <Item icon={<LogoutOutlined />} onClick={logout}className="font-weight-bold">
+            Log Out
+          </Item>
+        </SubMenu>
+      )}
 
-{user && user.role === "admin"
-       && 
-        <Item icon ={<SettingTwoTone />}><Link to="admin/dashboard">Dashboard</Link></Item>
-}
-
-
-
-
-        <Item icon ={<LogoutOutlined/>} onClick={logout} >Log Out</Item>
-    </SubMenu>
- )}
-  </Menu>
-
-    
-)
-
-}
+      <span className="float-right p-1">
+        <Search />
+      </span>
+    </Menu>
+  );
+};
 
 export default Header;
