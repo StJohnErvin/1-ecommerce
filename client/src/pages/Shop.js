@@ -288,7 +288,7 @@ const Shop = () => {
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-3 pt-2">
-          <h4 className=" font-weight-bold p-3 mt-3  mb-5 display-4 bg-info text-white">Search/Filter</h4>
+          <h4 className="  font-weight-bold p-3 mt-3  mb-5 display-4 bg-info text-white ">Search/Filter</h4>
           <hr />
 
           <Menu
@@ -393,9 +393,9 @@ const Shop = () => {
 
         <div className="col-md-9 pt-2">
           {loading ? (
-            <h4 className= "font-weight-bold p-3 mt-3  mb-5 display-4 bg-info text-danger">Loading...</h4>
+            <h4 className=" font-weight-bold p-3 mt-3  mb-5 display-4 bg-info text-danger ">Loading...</h4>
           ) : (
-            <h4 className= "font-weight-bold p-3 mt-3  mb-5 display-4 bg-info text-white">Products</h4>
+            <h4 className="  font-weight-bold p-3 mt-3  mb-5 display-4 bg-info text-white ">Products</h4>
           )}
 
           {products.length < 1 && <p>No products found</p>}
