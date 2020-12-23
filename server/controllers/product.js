@@ -66,6 +66,7 @@ exports.update = async (req, res) => {
 };
 
 
+
 exports.list = async (req, res) => {
   try {
     const { sort, order, page } = req.body;
@@ -266,7 +267,7 @@ exports.searchFilters = async (req, res) => {
     await handleQuery(req, res, query);
   }
 
-  
+  // price [20, 200]
   if (price !== undefined) {
     console.log("price ---> ", price);
     await handlePrice(req, res, price);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu } from "antd";
+import { Menu, Badge } from "antd";
 import {
   CrownTwoTone,
   UserOutlined,
@@ -23,7 +23,7 @@ const Header = () => {
 
   let dispatch = useDispatch();
 
-  let { user } = useSelector((state) => ({ ...state }));
+  let { user, cart } = useSelector((state) => ({ ...state }));
 
   let history = useHistory();
 
@@ -55,8 +55,13 @@ const Header = () => {
       <Item key="shop" icon={<ShopTwoTone />}className="font-weight-bold">
         <Link to="/shop">Shop</Link>
       </Item>
-      <Item key="" icon={<ShoppingCartOutlined />} className="text-success font-weight-bold">
-        <Link to="">Cart</Link>
+
+      <Item key="cart" icon={<ShoppingCartOutlined />} className="text-success font-weight-bold ">
+        <Link to="/cart">
+<Badge count={cart.length} offset={[9, 0]} className="text-white">Cart</Badge>
+
+
+        </Link>
       </Item>
 
       {!user && (

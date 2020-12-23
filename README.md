@@ -32,7 +32,7 @@ Products based on Categories and Sub Categories :heavy_check_mark:
 
 Advance Searching and Filtering :heavy_check_mark: 
 
-Add to Cart
+Add to Cart :heavy_check_mark: 
 
 Checkout
 
