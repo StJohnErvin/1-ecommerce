@@ -32,7 +32,7 @@ const AdminNav = () =>(
 
 
     <li className="nav-item">
-<Link to="/admin/coupons" className="nav-link">Coupon</Link>
+<Link to="/admin/coupon" className="nav-link">Coupon</Link>
     </li>
 
     <li className="nav-item">

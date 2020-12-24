@@ -8,11 +8,13 @@ import _ from "lodash";
 import { useSelector, useDispatch } from "react-redux";
 
 const { Meta } = Card;
-const ProductCard = ({ product }) => {
 
+const ProductCard = ({ product }) => {
   const [tooltip, setTooltip] = useState("Click to add");
+
   const { user, cart } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
+
   const handleAddToCart = () => {
     let cart = [];
     if (typeof window !== "undefined") {
@@ -26,9 +28,14 @@ const ProductCard = ({ product }) => {
       let unique = _.uniqWith(cart, _.isEqual);
       localStorage.setItem("cart", JSON.stringify(unique));
       setTooltip("Added");
+
       dispatch({
         type: "ADD_TO_CART",
         payload: unique,
+      });
+      dispatch({
+        type: "SET_VISIBLE",
+        payload: true,
       });
     }
   };

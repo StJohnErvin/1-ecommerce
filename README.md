@@ -34,9 +34,9 @@ Advance Searching and Filtering :heavy_check_mark:
 
 Add to Cart :heavy_check_mark: 
 
-Checkout
+Checkout :heavy_check_mark:
 
-Coupon
+Coupon :heavy_check_mark:
 
 Payment with Stripe
 

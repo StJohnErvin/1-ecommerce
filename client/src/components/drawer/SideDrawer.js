@@ -16,7 +16,7 @@ const SideDrawer = () => {
 
   return (
     <Drawer
-      className="text-center"
+      className="text-center "
       title={`Cart / ${cart.length} Product`}
       placement="right"
       closable={false}
@@ -34,14 +34,14 @@ const SideDrawer = () => {
             {p.images[0] ? (
               <>
                 <img src={p.images[0].url} style={imageStyle} />
-                <p className="text-center bg-secondary text-light">
+                <p className="text-center bg-info text-light">
                   {p.title} x {p.count}
                 </p>
               </>
             ) : (
               <>
                 <img src={laptop} style={imageStyle} />
-                <p className="text-center bg-secondary text-light">
+                <p className="text-center bg-info text-light">
                   {p.title} x {p.count}
                 </p>
               </>
@@ -58,7 +58,7 @@ const SideDrawer = () => {
               payload: false,
             })
           }
-          className="text-center btn btn-primary btn-raised btn-block"
+          className="text-center btn btn-success btn-raised btn-block"
         >
           Go To Cart
         </button>
