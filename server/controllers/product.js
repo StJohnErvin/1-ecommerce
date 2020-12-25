@@ -15,7 +15,6 @@ exports.create = async (req, res) => {
     });
   }
 };
-
 exports.listAll = async (req, res) => {
   let products = await Product.find({})
     .limit(parseInt(req.params.count))
@@ -25,7 +24,6 @@ exports.listAll = async (req, res) => {
     .exec();
   res.json(products);
 };
-
 exports.remove = async (req, res) => {
   try {
     const deleted = await Product.findOneAndRemove({
@@ -37,7 +35,6 @@ exports.remove = async (req, res) => {
     return res.staus(400).send("Product delete failed");
   }
 };
-
 exports.read = async (req, res) => {
   const product = await Product.findOne({ slug: req.params.slug })
     .populate("category")
@@ -45,7 +42,6 @@ exports.read = async (req, res) => {
     .exec();
   res.json(product);
 };
-
 exports.update = async (req, res) => {
   try {
     if (req.body.title) {
@@ -64,9 +60,6 @@ exports.update = async (req, res) => {
     });
   }
 };
-
-
-
 exports.list = async (req, res) => {
   try {
     const { sort, order, page } = req.body;
@@ -86,12 +79,10 @@ exports.list = async (req, res) => {
     console.log(err);
   }
 };
-
 exports.productsCount = async (req, res) => {
   let total = await Product.find({}).estimatedDocumentCount().exec();
   res.json(total);
 };
-
 exports.productStar = async (req, res) => {
   const product = await Product.findById(req.params.productId).exec();
   const user = await User.findOne({ email: req.user.email }).exec();

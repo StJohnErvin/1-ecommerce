@@ -38,17 +38,17 @@ Checkout :heavy_check_mark:
 
 Coupon :heavy_check_mark:
 
-Payment with Stripe
+Payment with Stripe :heavy_check_mark:
 
-Orders
+Orders :heavy_check_mark:
 
-User Dashboard (Purchase History)
+User Dashboard (Purchase History) :heavy_check_mark:
 
-PDF/Invoice Download
+PDF/Invoice Download :heavy_check_mark:
 
-Admin Dashboard (Order Management)
+Admin Dashboard (Order Management) :heavy_check_mark:
 
-Wishlist
+Wishlist :heavy_check_mark:
 
 Cash On Delivery (Cashless order)
 
