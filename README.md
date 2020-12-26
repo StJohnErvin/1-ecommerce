@@ -50,6 +50,6 @@ Admin Dashboard (Order Management) :heavy_check_mark:
 
 Wishlist :heavy_check_mark:
 
-Cash On Delivery (Cashless order)
+Cash On Delivery (Cashless order)  :heavy_check_mark:
 
-Deployment to Digital Ocean Cloud
+Deployment to Digital Ocean Cloud  :heavy_check_mark:
