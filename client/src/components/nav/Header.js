@@ -65,7 +65,7 @@ const Header = () => {
       </Item>
 
       {!user && (
-        <Item key="register" icon={<UserAddOutlined /> }className="font-weight-bold">
+        <Item key="register" icon={<UserAddOutlined /> }className="float-right  font-weight-bold">
           <Link to="/register">Register</Link>
         </Item>
       )}
